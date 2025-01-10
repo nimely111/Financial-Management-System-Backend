@@ -11,7 +11,7 @@ class User(Base):
     role = Column(String(500), nullable=False)
     password =Column(String(500), nullable=False)
     username = Column(String(500), nullable=False)
-    profile_picture = Column(String(700), nullable=False)
+    profile_picture = Column(String(700), nullable=True)
     dob = Column(String(500), nullable=False)
     nationality = Column(String(500), nullable=False)
     contact_phone = Column(String(500), nullable=False)
@@ -21,8 +21,8 @@ class User(Base):
     city_name = Column(String(500), nullable=False)
     about_user = Column(String(500), nullable=False)
 
-    # one to many relationship
-    transactions = relationship('Transaction', back_populates='user')
+    # one to many relationship with t ransaction
+    transactions = relationship('Transaction', back_populates='user', cascade='all, delete-orphan')
 
 # transaction table
 class Transaction(Base):
