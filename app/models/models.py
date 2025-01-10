@@ -30,7 +30,6 @@ class Transaction(Base):
     # creating columns and datatypes for each record
     id = Column(Integer, primary_key=True, index=True)
     amount = Column(Float)
-    category = Column(String)
     description = Column(String)
     date = Column(String)
     savings_amount = Column(Float, nullable=False)
