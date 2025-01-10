@@ -6,17 +6,17 @@ from db.db_setup import Base
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True, index=True)
-    email = Column(String(500), unique=True)
-    password =Column(String(500), nullable=False)
-    username = Column(String(500))
     firstname = Column(String(500), nullable=False)
     lastname = Column(String(500))
-    profile_picture = Column(String(700))
-    dob = Column(String(500))
-    nationality = Column(String(500))
-    phone = Column(String(500))
-    gender = Column(String(500))
-    address = Column(String(500))
+    email = Column(String(500), unique=True, nullable=False)
+    password =Column(String(500), nullable=False)
+    username = Column(String(500), nullable=False)
+    profile_picture = Column(String(700), nullable=False)
+    dob = Column(String(500), nullable=False)
+    nationality = Column(String(500), nullable=False)
+    phone = Column(String(500), nullable=False)
+    gender = Column(String(500), nullable=False)
+    address = Column(String(500), nullable=False)
 
     # one to many relationship
     transactions = relationship('Transaction', back_populates='user')
