@@ -32,8 +32,10 @@ class Transaction(Base):
     amount = Column(Float)
     category = Column(String)
     description = Column(String)
-    is_income = Column(Boolean)
     date = Column(String)
+    savings_amount = Column(Float, nullable=False)
+    savings_type = Column(Float, nullable=False)
+    savings_currency = Column(Float, nullable=False)
     user_id = Column(Integer, ForeignKey('users.id'))
 
     # one to many relationship
