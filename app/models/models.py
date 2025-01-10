@@ -36,7 +36,7 @@ class Transaction(Base):
     savings_amount = Column(Float, nullable=False)
     savings_type = Column(String, nullable=False)
     savings_currency = Column(String, nullable=False)
-    user_id = Column(Integer, ForeignKey('users.id'))
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
 
-    # one to many relationship
+    # relationship back to user
     user = relationship('User', back_populates='transactions')
