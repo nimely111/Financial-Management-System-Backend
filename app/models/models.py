@@ -22,7 +22,11 @@ class User(Base):
     about_user = Column(String(500), nullable=False)
 
     # one to many relationship with t ransaction
-    transactions = relationship('Transaction', back_populates='user', cascade='all, delete-orphan')
+    transactions = relationship(
+        'Transaction',
+        back_populates='user', 
+        cascade='all, delete-orphan'
+        )
 
 # transaction table
 class Transaction(Base):
