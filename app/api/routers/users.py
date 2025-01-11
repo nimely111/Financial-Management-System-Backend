@@ -4,7 +4,10 @@ from app.db.db_setup import get_db
 from app.crud.users import get_user, get_users, create_user, update_user, delete_user
 from app.schemas.users import UserCreate, UserUpdate, UserResponse
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/users",
+    tags=["Users"]
+)
 
 
 @router.get("/", response_model=list[UserResponse])
