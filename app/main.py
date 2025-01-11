@@ -7,6 +7,14 @@ from schemas.users import (
     UserResponse,
     UserUpdate
 )
+
+from schemas.transactions import (
+    TransactionBase,
+    TransactionCreate,
+    TransactionResponse,
+    TransactionUpdate
+    )
+
 app = FastAPI(title="Try and See Financial Management system Backend", docs_url="/docs")
 
 @app.get("/")
