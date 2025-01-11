@@ -5,7 +5,9 @@ class UserBase(BaseModel):
     firstname: str
     lastname: str | None = None
     role: str
+    password: str
     username: str
+    profilePicture: str
     dob: str
     nationality: str
     contactPhone: str
