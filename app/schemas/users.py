@@ -18,7 +18,20 @@ class UserBase(BaseModel):
     about_user: str | None = None
 
 class UserCreate(UserBase):
-    pass
+    firstname: str
+    lastname: str
+    role: str
+    password: str
+    username: str
+    profilePicture: str
+    dob: str
+    nationality:str
+    contactPhone: str
+    contactEmail: EmailStr
+    gender: str
+    address: str
+    city_name: str
+    about_user: str | None = None
 
 class UserUpdate(UserBase):
     pass
