@@ -34,7 +34,20 @@ class UserCreate(UserBase):
     about_user: str | None = None
 
 class UserUpdate(UserBase):
-    pass
+    firstname: Optional[str] = None
+    lastname: Optional[str] = None
+    role: Optional[str] = None
+    password: Optional[str] = None
+    username: Optional[str] = None
+    profilePicture: Optional[str] = None
+    dob: Optional[str] = None
+    nationality:Optional[str] = None
+    contactPhone: Optional[str] = None
+    contactEmail: Optional[EmailStr] = None
+    gender: Optional[str] = None
+    address: Optional[str] = None
+    city_name: Optional[str] = None
+    about_user: Optional[str] = None 
 
 class UserResponse(UserBase):
     id: int
