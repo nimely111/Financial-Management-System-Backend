@@ -21,7 +21,7 @@ class User(Base):
     city_name = Column(String(500), nullable=False)
     about_user = Column(String(500), nullable=False)
 
-    # one to many relationship with t ransaction
+    # one to many relationship with transaction
     transactions = relationship(
         'Transaction',
         back_populates='user', 
