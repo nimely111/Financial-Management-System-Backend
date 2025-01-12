@@ -10,3 +10,7 @@ app.include_router(userRouter)
 @app.get("/")
 async def read_rootsss():
     return {"message": "Hello, There!"}
+
+@app.get("/test")
+async def testing():
+    return {"message": "We are testing our endpoints!"}

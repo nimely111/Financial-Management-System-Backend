@@ -7,11 +7,11 @@ class UserBase(BaseModel):
     role: str
     password: str
     username: str
-    profilePicture: str
+    profile_picture: str
     dob: str
     nationality: str
-    contactPhone: str
-    contactEmail: EmailStr  # Email validation via Pydantic
+    contact_phone: str
+    contact_email: EmailStr  # Email validation via Pydantic
     gender: str
     address: str
     city_name: str
@@ -23,11 +23,11 @@ class UserCreate(UserBase):
     role: str
     password: str
     username: str
-    profilePicture: str
+    profile_picture: str
     dob: str
     nationality:str
-    contactPhone: str
-    contactEmail: EmailStr
+    contact_phone: str
+    contact_email: EmailStr
     gender: str
     address: str
     city_name: str
@@ -39,11 +39,11 @@ class UserUpdate(UserBase):
     role: Optional[str] = None
     password: Optional[str] = None
     username: Optional[str] = None
-    profilePicture: Optional[str] = None
+    profile_picture: Optional[str] = None
     dob: Optional[str] = None
     nationality:Optional[str] = None
-    contactPhone: Optional[str] = None
-    contactEmail: Optional[EmailStr] = None
+    contact_phone: Optional[str] = None
+    contact_email: Optional[EmailStr] = None
     gender: Optional[str] = None
     address: Optional[str] = None
     city_name: Optional[str] = None
