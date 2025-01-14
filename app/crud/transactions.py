@@ -32,3 +32,9 @@ def get_transactions(
     limit: int = 10
 ):
     return db.query(Transaction).filter(Transaction.user_id == user_id).offset(skip).limit(limit).all()
+
+def get_transaction_by_id(
+    db: Session, 
+    transaction_id: int
+):
+    return db.query(Transaction).filter(Transaction.id == transaction_id).first()
