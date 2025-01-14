@@ -38,3 +38,21 @@ def get_transaction_by_id(
     transaction_id: int
 ):
     return db.query(Transaction).filter(Transaction.id == transaction_id).first()
+
+
+
+def update_transaction(
+    db: Session, 
+    transaction_id: int, 
+    transaction_update: TransactionUpdate
+):
+    db_transaction = db.query(Transaction).filter(Transaction.id == transaction_id).first()
+    if not db_transaction:
+        return None
+
+    for key, value in transaction_update.dict(exclude_unset=True).items():
+        setattr(db_transaction, key, value)
+
+    db.commit()
+    db.refresh(db_transaction)
+    return db_transaction
