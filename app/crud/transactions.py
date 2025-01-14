@@ -23,3 +23,12 @@ def create_transaction(
     db.refresh(db_transaction)
     return db_transaction
 
+
+
+def get_transactions(
+    db: Session, 
+    user_id: int, 
+    skip: int = 0, 
+    limit: int = 10
+):
+    return db.query(Transaction).filter(Transaction.user_id == user_id).offset(skip).limit(limit).all()
