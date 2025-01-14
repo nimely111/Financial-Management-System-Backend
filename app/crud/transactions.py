@@ -56,3 +56,15 @@ def update_transaction(
     db.commit()
     db.refresh(db_transaction)
     return db_transaction
+
+
+def delete_transaction(
+    db: Session, 
+    transaction_id: int
+):
+    db_transaction = db.query(Transaction).filter(Transaction.id == transaction_id).first()
+    if db_transaction:
+        db.delete(db_transaction)
+        db.commit()
+        return True
+    return False
