@@ -1,49 +1,25 @@
-from sqlalchemy.orm import Session 
+from sqlalchemy.orm import Session
 from models.models import Transaction
 from schemas.transactions import TransactionCreate, TransactionUpdate
 
-
-def create_transaction(
-    db: Session, 
-    transaction: TransactionCreate, 
-    user_id: int
-):
-    db_transaction = Transaction(
-        savings_amount=transaction.savings_amount,
-        savings_type=transaction.savings_type,
-        savings_currency=transaction.savings_currency,
-        description=transaction.description,
-        date=transaction.date,
-        user_id=user_id,
-    )
+# Create a New Transaction
+def create_transaction(db: Session, transaction: TransactionCreate):
+    db_transaction = Transaction(**transaction.dict())
     db.add(db_transaction)
     db.commit()
     db.refresh(db_transaction)
     return db_transaction
 
-
-
-def get_transactions(
-    db: Session, 
-    user_id: int, 
-    skip: int = 0, 
-    limit: int = 10
-):
+# Get All Transactions for a User
+def get_transactions(db: Session, user_id: int, skip: int = 0, limit: int = 10):
     return db.query(Transaction).filter(Transaction.user_id == user_id).offset(skip).limit(limit).all()
 
-def get_transaction_by_id(
-    db: Session, 
-    transaction_id: int
-):
+# Get a Single Transaction by ID
+def get_transaction_by_id(db: Session, transaction_id: int):
     return db.query(Transaction).filter(Transaction.id == transaction_id).first()
 
-
-
-def update_transaction(
-    db: Session, 
-    transaction_id: int, 
-    transaction_update: TransactionUpdate
-):
+# Update an Existing Transaction
+def update_transaction(db: Session, transaction_id: int, transaction_update: TransactionUpdate):
     db_transaction = db.query(Transaction).filter(Transaction.id == transaction_id).first()
     if not db_transaction:
         return None
@@ -55,11 +31,8 @@ def update_transaction(
     db.refresh(db_transaction)
     return db_transaction
 
-
-def delete_transaction(
-    db: Session, 
-    transaction_id: int
-):
+# Delete a Transaction
+def delete_transaction(db: Session, transaction_id: int):
     db_transaction = db.query(Transaction).filter(Transaction.id == transaction_id).first()
     if db_transaction:
         db.delete(db_transaction)
