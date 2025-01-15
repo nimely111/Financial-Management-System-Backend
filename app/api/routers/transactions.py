@@ -8,3 +8,11 @@ router = APIRouter(
     prefix="/transactions",
     tags=["transactions"]
 )
+
+@router.post("/transactions/", response_model=TransactionResponse)
+def create_new_transaction(
+    transaction: TransactionCreate,
+    user_id: int,
+    db: Session = Depends(get_db)
+):
+    pass
