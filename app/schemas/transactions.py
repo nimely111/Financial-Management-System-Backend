@@ -15,10 +15,10 @@ class TransactionCreate(TransactionBase):
 
 # Model for Transaction Update
 class TransactionUpdate(BaseModel):
-    date: Optional[str] = None
     savings_amount: Optional[float] = None
     savings_type: Optional[str] = None
     savings_currency: Optional[str] = None
+    date: Optional[str] = None
     description: Optional[str] = None
     user_id: Optional[int] = None
 
