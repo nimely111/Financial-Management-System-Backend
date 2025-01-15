@@ -9,13 +9,11 @@ def create_transaction(
     user_id: int
 ):
     db_transaction = Transaction(
-        amount=transaction.amount,
-        category=transaction.category,
-        description=transaction.description,
-        date=transaction.date,
         savings_amount=transaction.savings_amount,
         savings_type=transaction.savings_type,
         savings_currency=transaction.savings_currency,
+        description=transaction.description,
+        date=transaction.date,
         user_id=user_id,
     )
     db.add(db_transaction)

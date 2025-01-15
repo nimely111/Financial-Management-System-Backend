@@ -33,12 +33,11 @@ class Transaction(Base):
     __tablename__ = 'transactions'
     # creating columns and datatypes for each record
     id = Column(Integer, primary_key=True, index=True)
-    amount = Column(Float)
-    description = Column(String)
-    date = Column(String)
     savings_amount = Column(Float, nullable=False)
     savings_type = Column(String, nullable=False)
     savings_currency = Column(String, nullable=False)
+    description = Column(String)
+    date = Column(String)
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
 
     # relationship back to user
