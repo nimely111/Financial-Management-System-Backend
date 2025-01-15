@@ -15,4 +15,4 @@ def create_new_transaction(
     user_id: int,
     db: Session = Depends(get_db)
 ):
-    pass
+    return create_transaction(db=db, transaction=transaction, user_id=user_id)
