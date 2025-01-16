@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 from api.routers.users import router as userRouter
 from api.routers.transactions import router as transactionRouter
