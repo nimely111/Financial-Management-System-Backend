@@ -16,3 +16,7 @@ async def read_rootsss():
 @app.get("/test")
 async def testing():
     return {"message": "We are testing our endpoints!"}
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
