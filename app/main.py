@@ -1,12 +1,15 @@
-import uvicorn
 from fastapi import FastAPI
+import uvicorn
 from api.routers.users import router as userRouter
 from api.routers.transactions import router as transactionRouter
 from db.db_setup import Base, engine
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="Try and See Financial Management system Backend", docs_url="/docs")
 
 Base.metadata.create_all(bind = engine)
+origins = ['http://localhost:3000']
+
 app.include_router(userRouter)
 app.include_router(transactionRouter)
 
