@@ -11,12 +11,9 @@ app.include_router(userRouter)
 app.include_router(transactionRouter)
 
 @app.get("/")
-async def read_rootsss():
-    return {"message": "Hello, There!"}
+async def read_root():
+    return {"status": "200"}
 
-@app.get("/test")
-async def testing():
-    return {"message": "We are testing our endpoints!"}
 
 
 if __name__ == "__main__":
