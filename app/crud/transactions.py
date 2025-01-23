@@ -10,9 +10,10 @@ def create_transaction(db: Session, transaction: TransactionCreate):
     db.refresh(db_transaction)
     return db_transaction
 
-# Get All Transactions for a User
-def get_transactions(db: Session, user_id: int, skip: int = 0, limit: int = 10):
-    return db.query(Transaction).filter(Transaction.user_id == user_id).offset(skip).limit(limit).all()
+# Get All Transactions
+def get_all_transactions(db: Session, skip: int = 0, limit: int = 10):
+    return db.query(Transaction).offset(skip).limit(limit).all()
+
 
 # Get a Single Transaction by ID
 def get_transaction_by_id(db: Session, transaction_id: int):
