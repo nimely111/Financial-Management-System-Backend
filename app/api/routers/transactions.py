@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from db.db_setup import get_db
 from crud.transactions import (
-    create_transaction, get_transactions, get_transaction_by_id, update_transaction, delete_transaction
+    create_transaction, get_all_transactions, get_transaction_by_id, update_transaction, delete_transaction
 )
 from schemas.transactions import TransactionCreate, TransactionUpdate, TransactionResponse
 
@@ -19,15 +19,14 @@ def create_new_transaction(
 ):
     return create_transaction(db=db, transaction=transaction)
 
-# Read All Transactions for a User
+# Read All Transactions
 @router.get("/", response_model=list[TransactionResponse])
-def read_transactions(
-    user_id: int,
+def read_all_transactions(
     skip: int = 0,
     limit: int = 10,
     db: Session = Depends(get_db)
 ):
-    return get_transactions(db=db, user_id=user_id, skip=skip, limit=limit)
+    return get_all_transactions(db=db, skip=skip, limit=limit)
 
 # Read a Single Transaction by ID
 @router.get("/{transaction_id}", response_model=TransactionResponse)
