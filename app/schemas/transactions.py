@@ -25,6 +25,9 @@ class TransactionUpdate(BaseModel):
 class TransactionResponse(TransactionBase):
     id: int
     user_id: int
+    type: str
+    saving: float
+    currency: str
 
     class Config:
         orm_mode = True

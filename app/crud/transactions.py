@@ -11,7 +11,7 @@ def create_transaction(db: Session, transaction: TransactionCreate):
     return db_transaction
 
 # Get All Transactions
-def get_all_transactions(db: Session, skip: int = 0, limit: int = 10):
+def get_transactions(db: Session, skip: int = 0, limit: int = 10):
     return db.query(Transaction).offset(skip).limit(limit).all()
 
 
