@@ -48,9 +48,21 @@ class UserUpdate(UserBase):
     address: Optional[str] = None
     city_name: Optional[str] = None
     about_user: Optional[str] = None 
+    
+class TransactionResponse(BaseModel):
+    type: str
+    saving: float
+    currency: str
 
-class UserResponse(UserBase):
+    class Config:
+        orm_mode = True
+
+class UserResponse(BaseModel):
     id: int
+    firstname: str
+    lastname: str
+    address: str
+    transactions: List[TransactionResponse]  # Include transactions here
 
     class Config:
         orm_mode = True
