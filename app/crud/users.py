@@ -1,4 +1,4 @@
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from models.models import User
 from schemas.users import UserCreate, UserUpdate
 
