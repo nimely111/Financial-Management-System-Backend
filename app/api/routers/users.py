@@ -12,7 +12,8 @@ router = APIRouter(
 # fetch all users
 @router.get("/", response_model=list[UserResponse])
 def read_users(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
-    return get_users(db, skip=skip, limit=limit)
+    users = get_users(db, skip=skip, limit=limit)
+    return users
 
 # fetch a specific user by id
 @router.get("/{user_id}", response_model=UserResponse)
