@@ -5,7 +5,7 @@ from api.routers.transactions import router as transactionRouter
 from db.db_setup import Base, engine
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(title="Try and See Financial Management system Backend", docs_url="/docs")
+app = FastAPI(title="Try and See Backend", docs_url="/docs")
 
 Base.metadata.create_all(bind = engine)
 origins = ['http://localhost:3000']
