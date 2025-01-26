@@ -22,9 +22,14 @@ class TransactionUpdate(BaseModel):
     date: Optional[str] = None
 
 # Model for Transaction Response
-class TransactionResponse(TransactionBase):
+class TransactionResponse(BaseModel):
     id: int
-    user_id: int
+    savings_amount: float
+    savings_type: str
+    savings_currency: str
+    description: Optional[str]
+    date: str
+    user_id: int  # Include user_id for relational purposes
 
     class Config:
         orm_mode = True
