@@ -50,19 +50,23 @@ class UserUpdate(UserBase):
     about_user: Optional[str] = None 
     
 class TransactionResponse(BaseModel):
-    type: str
-    saving: float
-    currency: str
+    id: int
+    savings_amount: float
+    savings_type: str
+    savings_currency: str
+    description: Optional[str]
+    date: str
 
     class Config:
         orm_mode = True
+
 
 class UserResponse(BaseModel):
     id: int
     firstname: str
     lastname: str
     address: str
-    transactions: List[TransactionResponse]  # Include transactions here
+    transactions: List[TransactionResponse]  # Include nested transactions
 
     class Config:
         orm_mode = True
