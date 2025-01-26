@@ -26,7 +26,8 @@ def read_all_transactions(
     limit: int = 10,
     db: Session = Depends(get_db)
 ):
-    return get_transactions(db=db, skip=skip, limit=limit)
+    transactions = get_transactions(db=db, skip=skip, limit=limit)
+    return transactions
 
 # Read a Single Transaction by ID
 @router.get("/{transaction_id}", response_model=TransactionResponse)
