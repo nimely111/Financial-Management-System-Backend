@@ -66,6 +66,7 @@ class UserResponse(BaseModel):
     firstname: str
     lastname: str
     address: str
+    contact_phone: Optional[str] = None
     transactions: List[TransactionResponse]  # Include nested transactions
 
     class Config:
