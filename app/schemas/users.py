@@ -67,6 +67,7 @@ class UserResponse(BaseModel):
     lastname: str
     address: str
     city_name: Optional[str] = None
+    profile_picture: Optional[str] = None
     contact_phone: Optional[str] = None
     contact_email: Optional[EmailStr] = None
     transactions: List[TransactionResponse]  # Include nested transactions
