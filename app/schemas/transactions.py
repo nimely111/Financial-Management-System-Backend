@@ -3,7 +3,7 @@ from typing import Optional
 
 # Base Transaction Model
 class TransactionBase(BaseModel):
-    savings_amount: float
+    savings_amount: str
     savings_type: str
     savings_currency: str
     description: Optional[str] = None
@@ -15,7 +15,7 @@ class TransactionCreate(TransactionBase):
 
 # Model for Transaction Update
 class TransactionUpdate(BaseModel):
-    savings_amount: Optional[float] = None
+    savings_amount: Optional[str] = None
     savings_type: Optional[str] = None
     savings_currency: Optional[str] = None
     description: Optional[str] = None
@@ -24,7 +24,7 @@ class TransactionUpdate(BaseModel):
 # Model for Transaction Response
 class TransactionResponse(BaseModel):
     id: int
-    savings_amount: float
+    savings_amount: str
     savings_type: str
     savings_currency: str
     description: Optional[str]
