@@ -11,7 +11,7 @@ class UserBase(BaseModel):
     dob: str
     nationality: str
     contact_phone: str
-    contact_email: EmailStr  # Email validation via Pydantic
+    contact_email: str  # Email validation via Pydantic
     gender: str
     address: str
     city_name: str
@@ -27,7 +27,7 @@ class UserCreate(UserBase):
     dob: str
     nationality:str
     contact_phone: str
-    contact_email: EmailStr
+    contact_email: str
     gender: str
     address: str
     city_name: str
@@ -43,7 +43,7 @@ class UserUpdate(UserBase):
     dob: Optional[str] = None
     nationality:Optional[str] = None
     contact_phone: Optional[str] = None
-    contact_email: Optional[EmailStr] = None
+    contact_email: Optional[str] = None
     gender: Optional[str] = None
     address: Optional[str] = None
     city_name: Optional[str] = None
@@ -69,7 +69,7 @@ class UserResponse(BaseModel):
     city_name: Optional[str] = None
     profile_picture: Optional[str] = None
     contact_phone: Optional[str] = None
-    contact_email: Optional[EmailStr] = None
+    contact_email: Optional[str] = None
     transactions: List[TransactionResponse]  # Include nested transactions
 
     class Config:
