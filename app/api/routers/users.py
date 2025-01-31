@@ -1,5 +1,4 @@
 from fastapi import APIRouter, Depends, HTTPException
-from pydantic import ValidationError
 from sqlalchemy.orm import Session
 from db.db_setup import get_db
 from crud.users import get_user, get_users, create_user, update_user, delete_user
