@@ -51,7 +51,7 @@ class UserUpdate(UserBase):
     
 class TransactionResponse(BaseModel):
     id: int
-    savings_amount: float
+    savings_amount: str
     savings_type: str
     savings_currency: str
     description: Optional[str]
