@@ -33,7 +33,10 @@ class UserCreate(UserBase):
     city_name: str
     about_user: str | None = None
 
-class UserUpdate(UserBase):
+from pydantic import BaseModel, EmailStr
+from typing import Optional
+
+class UserUpdate(BaseModel):
     firstname: Optional[str] = None
     lastname: Optional[str] = None
     role: Optional[str] = None
@@ -41,13 +44,18 @@ class UserUpdate(UserBase):
     username: Optional[str] = None
     profile_picture: Optional[str] = None
     dob: Optional[str] = None
-    nationality:Optional[str] = None
+    nationality: Optional[str] = None
     contact_phone: Optional[str] = None
-    contact_email: Optional[EmailStr] = None
+    contact_email: Optional[str] = None
     gender: Optional[str] = None
     address: Optional[str] = None
     city_name: Optional[str] = None
-    about_user: Optional[str] = None 
+    about_user: Optional[str] = None
+
+    # Added savings fields to match the frontend payload
+    savings_amount: Optional[str] = None
+    savings_type: Optional[str] = None
+    savings_currency: Optional[str] = None  
     
 class TransactionResponse(BaseModel):
     id: int
