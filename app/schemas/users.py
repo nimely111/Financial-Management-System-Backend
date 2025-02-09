@@ -50,12 +50,7 @@ class UserUpdate(BaseModel):
     gender: Optional[str] = None
     address: Optional[str] = None
     city_name: Optional[str] = None
-    about_user: Optional[str] = None
-
-    # Added savings fields to match the frontend payload
-    savings_amount: Optional[str] = None
-    savings_type: Optional[str] = None
-    savings_currency: Optional[str] = None  
+    about_user: Optional[str] = None 
     
 class TransactionResponse(BaseModel):
     id: int
